@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://tennispro.com/index.html</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://tennispro.com/images/hero.png</image:loc>
+            <image:title>TennisPro Elite Tennis Training</image:title>
+        </image:image>
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://tennispro.com/about.html</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://tennispro.com/images/about-bg.png</image:loc>
+            <image:title>About TennisPro</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Store Page -->
+    <url>
+        <loc>https://tennispro.com/store.html</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Blog Page -->
+    <url>
+        <loc>https://tennispro.com/blog.html</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://tennispro.com/contact.html</loc>
+        <lastmod>2024-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog Articles -->
+    <url>
+        <loc>https://tennispro.com/blog-vr-training-revolution.html</loc>
+        <lastmod>2024-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-24</news:publication_date>
+            <news:title>VR Training Revolution: Transformasi Tennis dengan Virtual Reality</news:title>
+            <news:keywords>VR training, tennis technology, virtual reality</news:keywords>
+        </news:news>
+    </url>
+    
+    <url>
+        <loc>https://tennispro.com/blog-choosing-right-racket.html</loc>
+        <lastmod>2024-01-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-23</news:publication_date>
+            <news:title>Choosing the Right Racket: Complete Guide 2024</news:title>
+            <news:keywords>tennis racket, equipment guide, racket selection</news:keywords>
+        </news:news>
+    </url>
+    
+    <url>
+        <loc>https://tennispro.com/blog-nutrition-peak-performance.html</loc>
+        <lastmod>2024-01-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-22</news:publication_date>
+            <news:title>Nutrition for Peak Performance: Tennis Diet Guide</news:title>
+            <news:keywords>tennis nutrition, sports diet, peak performance</news:keywords>
+        </news:news>
+    </url>
+    
+    <url>
+        <loc>https://tennispro.com/blog-footwork-fundamentals.html</loc>
+        <lastmod>2024-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-21</news:publication_date>
+            <news:title>Footwork Fundamentals: Master Court Movement</news:title>
+            <news:keywords>tennis footwork, court movement, training drills</news:keywords>
+        </news:news>
+    </url>
+    
+    <url>
+        <loc>https://tennispro.com/blog-summer-tournament-series.html</loc>
+        <lastmod>2024-01-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-20</news:publication_date>
+            <news:title>Summer Tournament Series 2024: $50,000 Prize Pool</news:title>
+            <news:keywords>tennis tournament, summer series, competition</news:keywords>
+        </news:news>
+    </url>
+    
+    <url>
+        <loc>https://tennispro.com/blog-string-tension-guide.html</loc>
+        <lastmod>2024-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <news:news>
+            <news:publication>
+                <news:name>TennisPro Blog</news:name>
+                <news:language>id</news:language>
+            </news:publication>
+            <news:publication_date>2024-01-19</news:publication_date>
+            <news:title>String Tension Guide: Find Your Perfect Setup</news:title>
+            <news:keywords>string tension, racket setup, tennis equipment</news:keywords>
+        </news:news>
+    </url>
+    
+</urlset>

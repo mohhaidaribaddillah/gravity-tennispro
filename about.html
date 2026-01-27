@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>About Us - TennisPro Elite Training</title>
+    <meta name="description"
+        content="Learn about TennisPro's mission to provide elite tennis training and premium equipment to players worldwide." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-nav {
+            background-color: #11d442;
+            color: #102215;
+        }
+
+        .wa-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+                position: relative;
+                width: 100%;
+            }
+
+            .flex.h-screen {
+                height: auto;
+                min-height: 100vh;
+            }
+        }        
+        /* Desktop: Sidebar always visible, mobile menu button hidden */
+        @media (min-width: 1024px) {
+            #mobileMenuToggle {
+                display: none !important;
+            }
+            
+            #sidebar {
+                transform: translateX(0) !important;
+                position: relative !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-white font-display min-h-screen">
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobileMenuToggle"
+        class="lg:hidden fixed top-4 left-4 z-50 size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <div class="flex h-screen w-full overflow-hidden p-2 md:p-4 gap-2 md:gap-4">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar"
+            class="mobile-menu fixed lg:relative flex flex-col h-full w-64 bg-[#1c271e] rounded-xl p-4 justify-between transition-all duration-300 z-40">
+            <button id="closeMobileMenu" class="lg:hidden absolute top-4 right-4 text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <div class="flex flex-col gap-8">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="bg-primary size-10 rounded-full flex items-center justify-center overflow-hidden">
+                        <img src="images/logo.png" alt="TennisPro Logo" class="w-full h-full object-cover"
+                            >
+                        
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-white text-base font-bold leading-none">TennisPro</h1>
+                        <p class="text-primary text-xs font-medium">Elite Rank</p>
+                    </div>
+                </div>
+
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="index.html">
+                        <span class="material-symbols-outlined">home</span>
+                        <span class="text-sm font-medium">Home</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full active-nav transition-colors"
+                        href="about.html">
+                        <span class="material-symbols-outlined">info</span>
+                        <span class="text-sm font-medium">About Us</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="store.html">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span class="text-sm font-medium">Store</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="blog.html">
+                        <span class="material-symbols-outlined">article</span>
+                        <span class="text-sm font-medium">Blog</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="contact.html">
+                        <span class="material-symbols-outlined">contact_mail</span>
+                        <span class="text-sm font-medium">Contact Us</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                    href="#settings">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+                <div class="flex items-center gap-3 p-2 bg-[#28392c] rounded-full mt-2">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 bg-primary"></div>
+                    <div class="flex flex-col overflow-hidden">
+                        <p class="text-white text-xs font-bold truncate">Tennis Player</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+            <!-- Top Header -->
+            <header class="flex items-center justify-between w-full h-16 shrink-0 flex-wrap gap-2">
+                <div class="flex-1 max-w-xl min-w-0">
+                    <div class="relative flex items-center">
+                        <span class="material-symbols-outlined absolute left-4 text-[#9db9a4]">search</span>
+                        <input
+                            class="w-full h-12 pl-12 pr-4 rounded-full border-none bg-[#1c271e] text-white placeholder:text-[#9db9a4] focus:ring-2 focus:ring-primary text-sm"
+                            placeholder="Search..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center hover:bg-[#28392c] transition-all">
+                        <span class="material-symbols-outlined">tune</span>
+                    </button>
+                    <button
+                        class="size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center hover:bg-[#28392c] transition-all relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="absolute top-3 right-3 size-2 bg-primary rounded-full"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- About Content -->
+            <div class="flex flex-col gap-4">
+                <!-- Hero Section -->
+                <div
+                    class="relative overflow-hidden rounded-xl bg-[#28392c] min-h-[400px] flex items-center justify-center">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-30"
+                        style='background-image: url("images/about-bg.png");'></div>
+                    <div class="relative z-10 text-center p-8">
+                        <h1 class="text-5xl md:text-7xl font-black text-white mb-4">ABOUT US</h1>
+                        <p class="text-xl text-[#9db9a4] max-w-2xl mx-auto">Empowering tennis players worldwide with
+                            elite training and premium equipment</p>
+                    </div>
+                </div>
+
+                <!-- Mission & Vision -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-[#1c271e] rounded-xl p-8 border border-white/5">
+                        <div class="bg-primary/20 p-4 rounded-2xl w-fit mb-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">flag</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Our Mission</h3>
+                        <p class="text-[#9db9a4]">To provide world-class tennis training and equipment that empowers
+                            players to reach their full potential. We combine cutting-edge technology with proven
+                            training methods to create an unparalleled tennis experience.</p>
+                    </div>
+                    <div class="bg-[#1c271e] rounded-xl p-8 border border-white/5">
+                        <div class="bg-primary/20 p-4 rounded-2xl w-fit mb-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">visibility</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Our Vision</h3>
+                        <p class="text-[#9db9a4]">To become the global leader in tennis innovation, creating a community
+                            of elite players who push the boundaries of what's possible on the court. We envision a
+                            future where every player has access to professional-grade training.</p>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-br from-[#28392c] to-[#1c271e] rounded-xl p-6 text-center">
+                        <div class="text-4xl font-black text-primary mb-2">12.5K+</div>
+                        <div class="text-sm text-[#9db9a4]">Active Players</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#28392c] to-[#1c271e] rounded-xl p-6 text-center">
+                        <div class="text-4xl font-black text-primary mb-2">50+</div>
+                        <div class="text-sm text-[#9db9a4]">Countries</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#28392c] to-[#1c271e] rounded-xl p-6 text-center">
+                        <div class="text-4xl font-black text-primary mb-2">100+</div>
+                        <div class="text-sm text-[#9db9a4]">Pro Coaches</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#28392c] to-[#1c271e] rounded-xl p-6 text-center">
+                        <div class="text-4xl font-black text-primary mb-2">15+</div>
+                        <div class="text-sm text-[#9db9a4]">Years Experience</div>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div class="bg-[#1c271e] rounded-xl p-8 border border-white/5">
+                    <h2 class="text-3xl font-black text-white mb-6">Why Choose TennisPro?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="flex flex-col gap-3">
+                            <div class="bg-primary/20 p-3 rounded-xl w-fit">
+                                <span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Premium Equipment</h4>
+                            <p class="text-sm text-[#9db9a4]">Access to the latest Kuro-Tech rackets and
+                                professional-grade gear used by top players worldwide.</p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="bg-primary/20 p-3 rounded-xl w-fit">
+                                <span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">VR Training</h4>
+                            <p class="text-sm text-[#9db9a4]">Revolutionary VR training modules that improve reaction
+                                time and court awareness like never before.</p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="bg-primary/20 p-3 rounded-xl w-fit">
+                                <span class="material-symbols-outlined text-primary text-3xl">groups</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Global Community</h4>
+                            <p class="text-sm text-[#9db9a4]">Join 12.5K+ active players in our elite ranking system and
+                                compete globally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div
+                    class="bg-gradient-to-r from-primary/20 to-primary/5 rounded-xl p-8 md:p-12 text-center border border-primary/20">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ready to Join the Elite?</h2>
+                    <p class="text-[#9db9a4] mb-6 max-w-2xl mx-auto">Start your journey with TennisPro today and
+                        experience professional-grade training and equipment.</p>
+                    <div class="flex gap-4 justify-center flex-wrap">
+                        <button onclick="openWhatsApp('Saya ingin bergabung dengan TennisPro')"
+                            class="bg-primary text-background-dark px-8 py-3 rounded-full font-bold hover:bg-white transition-all">Get
+                            Started</button>
+                        <button onclick="window.location.href='contact.html'"
+                            class="border border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-background-dark transition-all">Contact
+                            Us</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="bg-[#1c271e] rounded-xl p-6 md:p-8 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-primary size-10 rounded-full flex items-center justify-center">
+                                <span
+                                    class="material-symbols-outlined text-background-dark font-bold">sports_tennis</span>
+                            </div>
+                            <h3 class="text-white text-xl font-bold">TennisPro</h3>
+                        </div>
+                        <p class="text-[#9db9a4] text-sm max-w-md">Join the elite ranking system with professional
+                            tennis training, premium equipment, and VR training modules.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Home</a></li>
+                            <li><a href="about.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">About Us</a>
+                            </li>
+                            <li><a href="store.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Store</a></li>
+                            <li><a href="blog.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li><a href="contact.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Contact Us</a>
+                            </li>
+                            <li><a onclick="openWhatsApp('Halo TennisPro')"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm cursor-pointer">WhatsApp</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-[#28392c] mt-8 pt-6 text-center">
+                    <p class="text-[#9db9a4] text-sm">&copy; 2024 TennisPro. All rights reserved.</p>
+                </div>
+            </footer>
+
+            <div class="h-8 shrink-0"></div>
+        </main>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a onclick="openWhatsApp('Halo, saya tertarik dengan TennisPro')"
+        class="wa-float size-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop"
+        class="scroll-top size-12 bg-primary rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+        <span class="material-symbols-outlined text-background-dark">arrow_upward</span>
+    </button>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const sidebar = document.getElementById('sidebar');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const mainContent = document.querySelector('main');
+
+        mainContent.addEventListener('scroll', () => {
+            if (mainContent.scrollTop > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            mainContent.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function openWhatsApp(message) {
+            const phoneNumber = '62895369969300';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
+
+

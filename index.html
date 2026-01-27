@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>TennisPro - Elite Tennis Training & Equipment</title>
+    <meta name="description"
+        content="Join TennisPro's elite ranking system with professional tennis training, premium equipment, and VR training modules." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-nav {
+            background-color: #11d442;
+            color: #102215;
+        }
+
+        /* WhatsApp Floating Button */
+        .wa-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+                position: relative;
+                width: 100%;
+            }
+
+            .flex.h-screen {
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+
+        /* Desktop: Sidebar always visible, mobile menu button hidden */
+        @media (min-width: 1024px) {
+            #mobileMenuToggle {
+                display: none !important;
+            }
+
+            #sidebar {
+                transform: translateX(0) !important;
+                position: relative !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-white font-display min-h-screen">
+
+    <!-- Mobile Menu Toggle - ONLY visible on mobile -->
+    <button id="mobileMenuToggle"
+        class="lg:hidden fixed top-4 left-4 z-50 size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <div class="flex h-screen w-full overflow-hidden p-2 md:p-4 gap-2 md:gap-4">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar"
+            class="mobile-menu fixed lg:relative flex flex-col h-full w-64 bg-[#1c271e] rounded-xl p-4 justify-between transition-all duration-300 z-40">
+            <!-- Close button for mobile ONLY -->
+            <button id="closeMobileMenu" class="lg:hidden absolute top-4 right-4 text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <div class="flex flex-col gap-8">
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3 px-2">
+                    <div class="bg-primary size-10 rounded-full flex items-center justify-center overflow-hidden">
+                        <img src="images/logo.png" alt="TennisPro Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-white text-base font-bold leading-none">TennisPro</h1>
+                        <p class="text-primary text-xs font-medium">Elite Rank</p>
+                    </div>
+                </div>
+
+                <!-- Nav Links -->
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full active-nav transition-colors"
+                        href="index.html">
+                        <span class="material-symbols-outlined">home</span>
+                        <span class="text-sm font-medium">Home</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="about.html">
+                        <span class="material-symbols-outlined">info</span>
+                        <span class="text-sm font-medium">About Us</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="store.html">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span class="text-sm font-medium">Store</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="blog.html">
+                        <span class="material-symbols-outlined">article</span>
+                        <span class="text-sm font-medium">Blog</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                        href="contact.html">
+                        <span class="material-symbols-outlined">contact_mail</span>
+                        <span class="text-sm font-medium">Contact Us</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Profile Bottom -->
+            <div class="flex flex-col gap-2">
+                <a class="flex items-center gap-4 px-4 py-3 rounded-full text-[#9db9a4] hover:bg-[#28392c] transition-colors"
+                    href="#settings">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+                <div class="flex items-center gap-3 p-2 bg-[#28392c] rounded-full mt-2">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 bg-primary"></div>
+                    <div class="flex flex-col overflow-hidden">
+                        <p class="text-white text-xs font-bold truncate">Tennis Player</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col gap-4 overflow-y-auto pr-2">
+            <!-- Top Header -->
+            <header class="flex items-center justify-between w-full h-16 shrink-0 flex-wrap gap-2">
+                <div class="flex-1 max-w-xl min-w-0">
+                    <div class="relative flex items-center">
+                        <span class="material-symbols-outlined absolute left-4 text-[#9db9a4]">search</span>
+                        <input
+                            class="w-full h-12 pl-12 pr-4 rounded-full border-none bg-[#1c271e] text-white placeholder:text-[#9db9a4] focus:ring-2 focus:ring-primary text-sm"
+                            placeholder="Search gear, players or matches..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center hover:bg-[#28392c] transition-all">
+                        <span class="material-symbols-outlined">tune</span>
+                    </button>
+                    <button
+                        class="size-12 rounded-full bg-[#1c271e] text-white flex items-center justify-center hover:bg-[#28392c] transition-all relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="absolute top-3 right-3 size-2 bg-primary rounded-full"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-4 flex-1 min-h-[800px]">
+                <!-- Hero Bento Box -->
+                <div
+                    class="md:col-span-8 md:row-span-4 relative overflow-hidden rounded-xl bg-[#28392c] group min-h-[400px]">
+                    <div class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style='background-image: linear-gradient(90deg, rgba(16,34,21,0.9) 0%, rgba(16,34,21,0.4) 50%, rgba(16,34,21,0) 100%), url("images/hero.png");'>
+                    </div>
+                    <div class="relative z-10 h-full flex flex-col justify-end p-6 md:p-12 gap-6">
+                        <div class="flex flex-col gap-2">
+                            <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Summer
+                                Series 2024</span>
+                            <h2
+                                class="text-4xl md:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white max-w-md">
+                                HIT HARD <br /> WIN BIG
+                            </h2>
+                            <p class="text-[#9db9a4] text-base md:text-lg max-w-sm mt-2">Experience the power of the new
+                                Kuro-Tech apparel line designed for maximum court speed.</p>
+                        </div>
+                        <button onclick="window.location.href='store.html'"
+                            class="flex items-center justify-center gap-2 bg-primary text-background-dark font-bold py-3 md:py-4 px-6 md:px-8 rounded-full w-fit hover:bg-white transition-all transform hover:-translate-y-1">
+                            <span>Shop Collection</span>
+                            <span class="material-symbols-outlined">arrow_outward</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Promotion Box (40% OFF) -->
+                <div
+                    class="md:col-span-4 md:row-span-2 bg-black rounded-xl relative overflow-hidden flex flex-col justify-center p-6 md:p-8 group min-h-[250px]">
+                    <div class="absolute right-[-20%] bottom-[-10%] opacity-40 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                        style='width: 300px; height: 300px; background-image: url("images/promo-bg.png"); background-size: contain; background-repeat: no-repeat;'>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-primary text-4xl md:text-5xl font-black italic">40% OFF</h3>
+                        <p class="text-white text-lg md:text-xl font-bold mt-1">SUMMER SMASH SALE</p>
+                        <p class="text-gray-400 text-sm mt-2 max-w-[180px]">All apparel and footwear collections.
+                            Limited time.</p>
+                        <a onclick="openWhatsApp('Saya tertarik dengan Summer Smash Sale 40% OFF')"
+                            class="inline-flex items-center gap-2 text-white font-bold mt-6 hover:text-primary transition-colors cursor-pointer">
+                            Claim Discount <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- New Arrivals Box -->
+                <div
+                    class="md:col-span-4 md:row-span-2 bg-[#1c271e] rounded-xl p-6 md:p-8 flex flex-col justify-between hover:bg-[#233126] transition-colors border border-white/5 min-h-[250px]">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-primary/20 p-3 rounded-2xl">
+                            <span class="material-symbols-outlined text-primary text-3xl">sports_tennis</span>
+                        </div>
+                        <span
+                            class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">New</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-2xl font-bold">New Arrivals</h4>
+                        <p class="text-[#9db9a4] text-sm mt-1">The Pro-Series Racket Collection with Kinetic Frame
+                            Technology.</p>
+                    </div>
+                    <button onclick="window.location.href='store.html'"
+                        class="flex items-center gap-2 bg-[#28392c] text-white px-6 py-3 rounded-full w-fit text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
+                        Explore <span class="material-symbols-outlined text-base">east</span>
+                    </button>
+                </div>
+
+                <!-- Stats/Mini Grid Cell -->
+                <div
+                    class="md:col-span-4 md:row-span-2 bg-gradient-to-br from-[#28392c] to-[#1c271e] rounded-xl p-6 md:p-8 flex flex-col justify-center items-center text-center gap-4 min-h-[250px]">
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-5xl font-black text-white">12.5</span>
+                        <span class="text-primary font-bold text-xl">K</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-white font-bold">Active Players</p>
+                        <p class="text-[#9db9a4] text-xs">Join the global elite ranking system today.</p>
+                    </div>
+                    <div class="flex -space-x-3 mt-2">
+                        <div class="size-8 rounded-full border-2 border-[#1c271e] bg-primary"></div>
+                        <div class="size-8 rounded-full border-2 border-[#1c271e] bg-[#28392c]"></div>
+                        <div class="size-8 rounded-full border-2 border-[#1c271e] bg-primary/50"></div>
+                        <div
+                            class="size-8 rounded-full border-2 border-[#1c271e] bg-[#28392c] flex items-center justify-center text-[10px] font-bold">
+                            +2k</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Training Box -->
+                <div
+                    class="md:col-span-8 md:row-span-2 bg-[#1c271e] rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden border border-white/5 min-h-[250px]">
+                    <div class="flex-1 z-10">
+                        <h4 class="text-white text-2xl md:text-3xl font-black">VR TRAINING</h4>
+                        <p class="text-[#9db9a4] mt-2 max-w-md">Improve your reaction time with our new anime-inspired
+                            VR training modules. Synced with your Pro-Racket.</p>
+                        <div class="flex gap-4 mt-6 flex-wrap">
+                            <button onclick="openWhatsApp('Saya ingin memulai VR Training Session')"
+                                class="bg-white text-background-dark px-6 py-2 rounded-full font-bold text-sm hover:bg-primary transition-colors">Start
+                                Session</button>
+                            <button onclick="window.location.href='about.html'"
+                                class="border border-[#28392c] text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-[#28392c] transition-colors">Learn
+                                More</button>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden md:block w-48 h-48 bg-primary/10 rounded-full blur-3xl absolute right-10 top-1/2 -translate-y-1/2">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="size-32 md:size-40 rounded-3xl rotate-12 bg-cover border-4 border-[#28392c] shadow-2xl bg-[#28392c]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="bg-[#1c271e] rounded-xl p-6 md:p-8 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-primary size-10 rounded-full flex items-center justify-center">
+                                <span
+                                    class="material-symbols-outlined text-background-dark font-bold">sports_tennis</span>
+                            </div>
+                            <h3 class="text-white text-xl font-bold">TennisPro</h3>
+                        </div>
+                        <p class="text-[#9db9a4] text-sm max-w-md">Join the elite ranking system with professional
+                            tennis training, premium equipment, and VR training modules.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Home</a></li>
+                            <li><a href="about.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">About Us</a>
+                            </li>
+                            <li><a href="store.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Store</a></li>
+                            <li><a href="blog.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li><a href="contact.html"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm">Contact Us</a>
+                            </li>
+                            <li><a onclick="openWhatsApp('Halo TennisPro')"
+                                    class="text-[#9db9a4] hover:text-primary transition-colors text-sm cursor-pointer">WhatsApp</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-[#28392c] mt-8 pt-6 text-center">
+                    <p class="text-[#9db9a4] text-sm">&copy; 2024 TennisPro. All rights reserved.</p>
+                </div>
+            </footer>
+
+            <!-- Bottom Spacer -->
+            <div class="h-8 shrink-0"></div>
+        </main>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a onclick="openWhatsApp('Halo, saya tertarik dengan TennisPro')"
+        class="wa-float size-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop"
+        class="scroll-top size-12 bg-primary rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+        <span class="material-symbols-outlined text-background-dark">arrow_upward</span>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const sidebar = document.getElementById('sidebar');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
+        }
+
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (sidebar && mobileMenuToggle && !sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const mainContent = document.querySelector('main');
+
+        if (mainContent && scrollTopBtn) {
+            mainContent.addEventListener('scroll', () => {
+                if (mainContent.scrollTop > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', () => {
+                mainContent.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // WhatsApp Function
+        function openWhatsApp(message) {
+            const phoneNumber = '62895369969300'; // Nomor WhatsApp TennisPro
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
